@@ -58,7 +58,16 @@ Place the ESP32-S3 on one side of the room and the router on the other side.
 
 - Room view with presence/motion indicator, live RSSI/CSI metrics, motion history chart
 
-Support:
+### Motion Detected
+<img width="350" height="678.75" alt="Screenshot_2026-05-06-22-09-28-94_e4424258c8b8649f6e67d283a50a2cbc" src="https://github.com/user-attachments/assets/8f433211-ab90-4e68-a09c-36672545927b" />
+
+### Empty Room
+<img width="350" height="717.5" alt="Screenshot_2026-05-06-22-39-12-26_e4424258c8b8649f6e67d283a50a2cbc" src="https://github.com/user-attachments/assets/4dcc62c4-76b4-4b58-b324-7c192ed4f74b" />
+
+### Person Detected
+<img width="350" height="754.25" alt="Screenshot_2026-05-06-22-09-52-68_e4424258c8b8649f6e67d283a50a2cbc" src="https://github.com/user-attachments/assets/6c213a45-aea4-4e2d-89d4-055bc151915b" />
+
+### Support:
 - Adjustable detection thresholds via sliders
 - Configurable room dimensions
 - Real-time WebSocket updates (~10 Hz)
