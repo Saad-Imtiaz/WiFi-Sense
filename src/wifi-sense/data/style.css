@@ -1,0 +1,239 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0e17;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #1a1f2e, #0d1117);
+    padding: 16px 24px;
+    border-bottom: 1px solid #2a3040;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #58a6ff;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.connected { background: #0d3321; color: #3fb950; }
+.status-badge.disconnected { background: #3d1a1a; color: #f85149; }
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 16px;
+    padding: 16px;
+    height: calc(100vh - 60px);
+}
+
+/* Room Canvas */
+.room-panel {
+    background: #161b22;
+    border-radius: 12px;
+    border: 1px solid #2a3040;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-panel h2 {
+    font-size: 14px;
+    color: #8b949e;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.canvas-wrap {
+    flex: 1;
+    position: relative;
+    min-height: 300px;
+}
+
+#roomCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+/* Side Panel */
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+.card {
+    background: #161b22;
+    border-radius: 12px;
+    border: 1px solid #2a3040;
+    padding: 16px;
+}
+
+.card h3 {
+    font-size: 12px;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* Detection Indicator */
+.detection-display {
+    text-align: center;
+    padding: 20px 16px;
+}
+
+.detection-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    transition: all 0.3s ease;
+}
+
+.detection-icon.none {
+    background: radial-gradient(circle, #1a2332, #0d1117);
+    box-shadow: 0 0 20px rgba(88,166,255,0.1);
+}
+
+.detection-icon.presence {
+    background: radial-gradient(circle, #0d3321, #0a1a10);
+    box-shadow: 0 0 30px rgba(63,185,80,0.3);
+}
+
+.detection-icon.motion {
+    background: radial-gradient(circle, #3d2a0a, #1a1400);
+    box-shadow: 0 0 30px rgba(210,153,34,0.4);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.detection-label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.detection-sub {
+    font-size: 12px;
+    color: #8b949e;
+}
+
+/* Metrics */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.metric {
+    background: #0d1117;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #58a6ff;
+}
+
+.metric-label {
+    font-size: 10px;
+    color: #8b949e;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* Settings */
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.setting-row label {
+    font-size: 13px;
+    color: #c9d1d9;
+}
+
+.setting-row input[type="range"] {
+    width: 120px;
+    accent-color: #58a6ff;
+}
+
+.setting-row .val {
+    font-size: 12px;
+    color: #58a6ff;
+    min-width: 30px;
+    text-align: right;
+}
+
+.room-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.room-inputs input {
+    background: #0d1117;
+    border: 1px solid #2a3040;
+    border-radius: 6px;
+    color: #e0e0e0;
+    padding: 6px 8px;
+    font-size: 13px;
+    width: 100%;
+}
+
+.room-inputs label {
+    font-size: 11px;
+    color: #8b949e;
+    display: block;
+    margin-bottom: 3px;
+}
+
+/* History chart */
+#historyCanvas {
+    width: 100%;
+    height: 100px;
+    border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+    .canvas-wrap {
+        min-height: 250px;
+    }
+}

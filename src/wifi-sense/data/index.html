@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WiFi Radar - Person Detector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>WiFi-Sense - WiFi Person Detector</h1>
+    <span id="connBadge" class="status-badge disconnected">DISCONNECTED</span>
+</div>
+
+<div class="main">
+    <!-- Room Visualization -->
+    <div class="room-panel">
+        <h2>Room View</h2>
+        <div class="canvas-wrap">
+            <canvas id="roomCanvas"></canvas>
+        </div>
+    </div>
+
+    <!-- Side Panel -->
+    <div class="side-panel">
+
+        <!-- Detection Status -->
+        <div class="card detection-display">
+            <div id="detIcon" class="detection-icon none">&mdash;</div>
+            <div id="detLabel" class="detection-label">ROOM EMPTY</div>
+            <div id="detSub" class="detection-sub">Waiting for data...</div>
+        </div>
+
+        <!-- Live Metrics -->
+        <div class="card">
+            <h3>Live Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div id="valRSSI" class="metric-value">--</div>
+                    <div class="metric-label">RSSI (dBm)</div>
+                </div>
+                <div class="metric">
+                    <div id="valCSI" class="metric-value">--</div>
+                    <div class="metric-label">CSI Avg</div>
+                </div>
+                <div class="metric">
+                    <div id="valMotion" class="metric-value">--</div>
+                    <div class="metric-label">RSSI Motion</div>
+                </div>
+                <div class="metric">
+                    <div id="valCSIMotion" class="metric-value">--</div>
+                    <div class="metric-label">CSI Motion</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Chart -->
+        <div class="card">
+            <h3>Motion History</h3>
+            <canvas id="historyCanvas"></canvas>
+        </div>
+
+        <!-- Settings -->
+        <div class="card">
+            <h3>Detection Settings</h3>
+            <div class="setting-row">
+                <label>Motion Threshold</label>
+                <input id="motionTh" type="range" min="1" max="100" value="15">
+                <span id="motionThVal" class="val">15</span>
+            </div>
+            <div class="setting-row">
+                <label>Presence Threshold</label>
+                <input id="presenceTh" type="range" min="1" max="50" value="5">
+                <span id="presenceThVal" class="val">5</span>
+            </div>
+            <div class="setting-row">
+                <label>Scan Interval</label>
+                <input id="scanInterval" type="range" min="50" max="500" step="10" value="100">
+                <span id="scanIntVal" class="val">100ms</span>
+            </div>
+        </div>
+
+        <!-- Room Config -->
+        <div class="card">
+            <h3>Room Dimensions</h3>
+            <div class="room-inputs">
+                <div>
+                    <label>Width (m)</label>
+                    <input id="roomW" type="number" step="0.1" min="1" max="20" value="5.0">
+                </div>
+                <div>
+                    <label>Length (m)</label>
+                    <input id="roomL" type="number" step="0.1" min="1" max="20" value="4.0">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
